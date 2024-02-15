@@ -17,7 +17,7 @@ export function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="alunos" element={<Alunos />}></Route>
             <Route path="cadastro" element={<Cadastro />}></Route>
-            <Route path="/editar/:id" element={<Editar />}></Route>
+            <Route path="/alunos/:id" element={<Editar />}></Route>
           </Routes>
         </section>
       </Router>

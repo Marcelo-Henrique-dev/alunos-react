@@ -23,7 +23,6 @@ export const Alunos: React.FC = () => {
             const alunoDb = JSON.parse(alunoData)
             if (Array.isArray(alunoDb)) {
                 setAlunosData(alunoDb)
-                console.log(alunoDb)
                 navigate('/alunos')
             } else {
                 console.error('Os dados não estão em um array')
@@ -42,7 +41,7 @@ export const Alunos: React.FC = () => {
     }
 
     function handleEdit(idAluno:string){
-        navigate(`/editar/:${idAluno}`)
+        navigate(`/alunos/${idAluno}`)
     }
 
 

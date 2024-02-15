@@ -26,7 +26,6 @@ export const Form: React.FC = () => {
         e.preventDefault()
         const novoAluno = { ...inputData }
         const alunoUp = [...dados, novoAluno]
-        setDados(alunoUp)
         localStorage.setItem('dados', JSON.stringify(alunoUp))
         alert("Aluno cadastrado com sucesso")
         navigate('/alunos')

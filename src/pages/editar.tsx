@@ -1,24 +1,22 @@
 import { useParams } from "react-router-dom";
 import { Container } from "../components/container/container";
 import { FormEditar } from "../components/form/formEditar";
-import { useEffect } from "react";
+import React, { useState } from "react";
 
-export function Editar() {
+export const Editar: React.FC = () => {
 
     let {id} = useParams()
 
-    useEffect(()=>{
-        const alunosData = localStorage.getItem('dados')
-        if(alunosData){
-            const alunoDb = JSON.parse(alunosData)
-            let result = alunoDb.filter(aluno => aluno.find(a => a.idAluno == id))
-        }
-    }, [])
+    const [nome, setNome] = useState('')
+
+    function passarNome(nome: string){
+        setNome(nome)
+    }
 
     return (
         <Container className="border-x border-slate-800">
-        <h1 className="text-slate-300 p-4 border-b border-sky-600 text-center text-3xl">Editar nome aqui</h1>
-            <FormEditar />
+        <h1 className="text-slate-300 p-4 border-b border-sky-600 text-center text-3xl">Editar aluno <b>{nome}</b>:</h1>
+            <FormEditar passarNome={passarNome} id={id} />
         </Container>
     )
 }
