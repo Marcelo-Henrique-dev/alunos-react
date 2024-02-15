@@ -1,29 +1,33 @@
 import { SubmitBtn } from "./formComponents/submitBtn";
 import { InputEdit } from "./formComponents/inputEdit";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-export const FormEditar = (props: { id: any; passarNome: any }) => {
+export const FormEditar = (props: { id: any }) => {
+  const navigate = useNavigate()
   const [alunoData, setAlunoData] = useState({
-    nome: "",
-    email: "",
-    nascimento: "",
+    nome: '',
+    email: '',
+    nascimento: '',
     matricula: 0,
-    curso: "",
+    curso: '',
   });
 
+  const [alunosArray, setAlunosArray] = useState([]);
+
   useEffect(() => {
-    const alunosData = localStorage.getItem("dados");
+    const alunosData = localStorage.getItem('dados');
     if (alunosData) {
       const alunoDb = JSON.parse(alunosData);
       setAlunosArray(alunoDb);
-      const aluno = alunoDb.find(
-        (aluno: { idAluno: string | undefined }) => aluno.idAluno === props.id
-      );
-      setAlunoData(aluno);
+      if (props.id) {
+        const aluno = alunoDb.find(
+          (aluno: { idAluno: string | undefined }) => aluno.idAluno === props.id
+        );
+        setAlunoData(aluno);
+      }
     }
   }, [props.id]);
-
-  const [alunosArray, setAlunosArray] = useState([]);
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
@@ -35,13 +39,16 @@ export const FormEditar = (props: { id: any; passarNome: any }) => {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const dadosUp = [...alunosArray, alunoData]
-    localStorage.setItem(`dados`, JSON.stringify(dadosUp));
-    alert("Aluno Editado com sucesso!");
-  }
+    const dadosUp = props.id
+      ? alunosArray.map((aluno: any) =>
+        aluno.idAluno === props.id ? alunoData : aluno
+      )
+      : [...alunosArray, alunoData];
 
-  const nome = alunoData.nome;
-  props.passarNome(nome);
+    localStorage.setItem('dados', JSON.stringify(dadosUp));
+    alert('Aluno Editado com sucesso!');
+    navigate('/alunos')
+  }
 
   return (
     <form

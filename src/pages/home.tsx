@@ -26,8 +26,8 @@ export function Home() {
                         <h1 className="text-slate-300 text-center text-2xl uppercase">Redes Sociais:</h1>
                         <div className=" mt-8 flex gap-8">
                             <LinkBtn href="https://www.linkedin.com/in/marcelo-henrique-0a299019a/" contentIcon={<FaLinkedin className="text-5xl" />} contentText="Linkedin" />
-                            <LinkBtn href="https://www.linkedin.com/in/marcelo-henrique-0a299019a/" contentIcon={<FaInstagram className="text-5xl" />} contentText="Instagram" />
-                            <LinkBtn href="https://www.linkedin.com/in/marcelo-henrique-0a299019a/" contentIcon={<FaGithub className="text-5xl" />} contentText="Github" />
+                            <LinkBtn href="https://www.instagram.com/m4rc3l0_h3nr1qu3/" contentIcon={<FaInstagram className="text-5xl" />} contentText="Instagram" />
+                            <LinkBtn href="https://github.com/marcelo-Henrique-dev" contentIcon={<FaGithub className="text-5xl" />} contentText="Github" />
                         </div>
                     </div>
                 </div>
