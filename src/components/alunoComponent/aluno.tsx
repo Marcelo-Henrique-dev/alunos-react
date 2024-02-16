@@ -1,9 +1,10 @@
 import { BiEdit, BiTrash } from "react-icons/bi";
 import { ActionBtn } from "../layoutComponents/actionBtn";
+import scroll from '../scroll.module.css'
 
 export function Aluno(props: {aluno:string, register: number, course: string, age: string, email: string, excluir: any, editar: any, id: string}){
     return(
-        <div className="bg-slate-800 flex flex-col w-1/3 border-8 border-slate-700" id="alunoContainer">
+        <div className={`bg-slate-800 flex flex-col border-8 border-slate-700 w-full md:w-1/2 lg:w-1/3 overflow-x-scroll ${scroll.scrollCustom}`} id="alunoContainer">
             <h1 className="bg-slate-600 p-4 text-center text-slate-300 text-xl">{props.aluno}</h1>
             <div className="flex flex-col gap-4 text-slate-400 p-4" id="infosAluno">
                 <p className="border-b border-slate-400 py-2 flex justify-between gap-2">Matrícula: <span className="font-bold">{props.register}</span></p>
