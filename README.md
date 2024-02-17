@@ -10,6 +10,10 @@ se preferir pode acessar o deploy direto pelo link pressioando CTRL e clicando n
 
 https://main--cadastrodealunos.netlify.app/
 
+Repositório do projeto no Github:
+
+https://github.com/Marcelo-Henrique-dev/alunos-react
+
 projeto desenvolvido por:
 Marcelo Henrique Rosendo da Silva
 Sistemas 2º Período
